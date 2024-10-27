@@ -1,27 +1,39 @@
-# Module 12 Report Template
+# Module 20 Challenge Report 
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+The purpose of this challenge is to see if a machine learning logistic regression model can be used to predict loan status and display them as 
+healthy or unhealthy.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+The dataset included historical financial data about loans that have been designated healthy or unhealthy (0 or 1) and
+presented alongisde other data such as number of accounts, debt to income, derogatory marks etc. These other variables add weight to the model
+to help it determine which will likely be healthy or unhealthy.
+
+By using value_counts on both the training and testing data, you can see that only about 3% of the loans are unhealthy. y_test is distributed
+as 0: 18759 and 1: 625. y_train is distributed as 0: 56277 and 1: 1875. Even though there is an imbalance, using our classification report, we
+can see that there is enough support data to have a high accuracy and recall for both healthy and unhealthy to use this model reliably.
+
+To prep this data, we first separated our target (y) from all the features (x). We split the data into X and y test, X and y train using the
+train_test_split function. Using stratify=y we can maintain the class proportions. We used a random_state of 1 so we an reproducse our work.
+We used a LogisticRegression model to train the data. We used a confusion matrix to get an overall insight into our classifications for both.
+Our predictions on the test data were evaluated with metrics for precision, recall, f1-score and showed the amount of support data for each
+group.
 
 ## Results
 
-Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
-
-* Machine Learning Model 1:
-    * Description of Model 1 Accuracy, Precision, and Recall scores.
+* LogisticRegression:
+    * The accuracy of the model is 99%, which means it correctly classified 99% of all loans.
+    * Healthy loans can be predicted with a precision and recall of 100% with no false positives and no false negatives!
+    * There is a large number to support the healthy loan data.
+    * Unhealthy loans have an 87% precision with a few false positives. This means 87% predicted as unhealthy were actually unhealthy.
+    * Unhealthy loans recall is 95%, indicating 95% are correctly identified
+    * While the support number for the unhealthy loans class is lower at 625, this is still very good, especially given the high precision
+        and recall.
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+The LogisticRegression model shows amazing performance at classifying loans. It has a 99% overall accuracy with great precision and recall numbers.
+Healthy class has a 100% prediction rate. Unhealthy is lower at 87% precision and 95% recall, but this is still very high. As a bank, it is more
+important to correctly identify the 1, or unhealthy class, but given the still high numbers for this, we can conclude that LogisticRegression is
+a highly recommended and reliable model for prediction on this dataset. We were only asked to use one model for this challenge, so I cannot 
+recommended another against this it, but since this model is so strong, I would not hesitate to recommend it.
