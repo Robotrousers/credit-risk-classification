@@ -30,6 +30,5 @@ Python: Jupyter Notebook, pandas, numpy
 
 ### Resources, Cites and API
 - *Class_Material 20-1-3* - logistic_regression_solution
-- *#19 Crypto_Clustering* - previous, similar challenge
 - *Class_Material 20-3-5* - 
 
