@@ -30,5 +30,5 @@ Python: Jupyter Notebook, pandas, numpy
 
 ### Resources, Cites and API
 - *Class_Material 20-1-3* - logistic_regression_solution
-- *Class_Material 20-3-5* - 
+- *Class_Material 20-1-4* - predicting_diabetes_solution
 
